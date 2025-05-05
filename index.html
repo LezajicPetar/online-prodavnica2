@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online prodavnica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Artikli</h1>
+        <hr>
+    </header>
+
+    <div id="container">
+        <table id="artikli">
+            <thead>
+                <tr>
+                    <th>Br</th>
+                    <th>Naziv</th>
+                    <th>Cena($)</th>
+                </tr>
+            </thead>
+            <tbody id="artikli-body">
+
+            </tbody>
+
+        </table>
+        <form id="forma">
+            <div>
+                <label for="naziv">Naziv:</label>
+                <input type="text" id="naziv" name="naziv" required>    
+            </div>
+            
+            <div>
+                <label for="cena">Cena:</label>
+                <input type="number" id="cena" name="cena" required>    
+            </div>
+
+            <div>
+                <label for="opis">Opis:</label>
+                <input type="text" id="opis" name="opis">    
+            </div>
+
+            <div id="submit-container">
+                <input type="submit" id="submitBtn" value="Dodaj">
+            </div>
+        </form>
+
+        <div id="detalji"></div>
+    </div>
+    <script src="app.js">Dodaj</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+$border-value: 1px solid black;
+
+
+#container{
+    display: flex;
+    gap: 30px;
+    margin: 30px;
+    width: 60%;
+    
+    #artikli{
+        border: $border-value;
+        border-collapse: collapse;
+        text-align:  center;
+
+        tr, td, th{
+            border: $border-value;
+            padding: 10px;
+        }
+    }
+
+    #forma{
+        border: $border-value;
+        padding: 10px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        
+        input{
+            border: none;
+            border-bottom: $border-value;
+        }
+
+        #submitBtn{
+            border: $border-value;
+            border-radius: 6px;
+            width: fit-content;
+            margin-left: 150px;
+        }
+    }
+}
