@@ -5,12 +5,22 @@ $border-value: 1px solid black;
     display: flex;
     gap: 30px;
     margin: 30px;
-    width: 60%;
+    width: 45%;
+    flex-wrap: wrap;
+
+    #detalji{
+        border: $border-value;
+        padding: 0px 15px;
+        display: none;
+        flex: 1;
+        max-width: 40%;
+    }
     
     #artikli{
         border: $border-value;
         border-collapse: collapse;
         text-align:  center;
+        flex: 1;
 
         tr, td, th{
             border: $border-value;
@@ -24,6 +34,7 @@ $border-value: 1px solid black;
         gap: 10px;
         display: flex;
         flex-direction: column;
+        flex: 1;
         
         input{
             border: none;

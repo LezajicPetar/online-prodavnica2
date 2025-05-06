@@ -27,8 +27,33 @@ function createArtikliRows(){
         tr.appendChild(naziv)
         tr.appendChild(cena)
 
+        tr.addEventListener('click', function() {
+            displayArtikldetails(listaArtikala[i])})
+
         table.appendChild(tr)
     }
+}
+
+function displayArtikldetails(artikal){
+    let p = document.createElement('p')
+    let p2 = document.createElement('p')
+    let p3 = document.createElement('p')
+
+    p.textContent = "Naziv: " + artikal.naziv
+    p2.textContent = "Cena: " + artikal.cena
+    p3.textContent = "Opis: " + artikal.opis
+
+    let detalji = document.querySelector('#detalji')
+
+    if(detalji.firstChild){
+        detalji.textContent = ''
+    }
+
+    detalji.appendChild(p)
+    detalji.appendChild(p2)
+    detalji.appendChild(p3)
+
+    detalji.style.display = 'block'
 }
 
 document.addEventListener('DOMContentLoaded', createArtikliRows)

@@ -2,12 +2,21 @@
   display: flex;
   gap: 30px;
   margin: 30px;
-  width: 60%;
+  width: 45%;
+  flex-wrap: wrap;
+}
+#container #detalji {
+  border: 1px solid black;
+  padding: 0px 15px;
+  display: none;
+  flex: 1;
+  max-width: 40%;
 }
 #container #artikli {
   border: 1px solid black;
   border-collapse: collapse;
   text-align: center;
+  flex: 1;
 }
 #container #artikli tr, #container #artikli td, #container #artikli th {
   border: 1px solid black;
@@ -19,6 +28,7 @@
   gap: 10px;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 #container #forma input {
   border: none;
