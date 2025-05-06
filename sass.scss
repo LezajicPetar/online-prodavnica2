@@ -5,15 +5,15 @@ $border-value: 1px solid black;
     display: flex;
     gap: 30px;
     margin: 30px;
-    width: 45%;
+    width: 35%;
     flex-wrap: wrap;
 
     #detalji{
         border: $border-value;
         padding: 0px 15px;
         display: none;
-        flex: 1;
-        max-width: 40%;
+        width: 200px;
+
     }
     
     #artikli{
@@ -35,6 +35,7 @@ $border-value: 1px solid black;
         display: flex;
         flex-direction: column;
         flex: 1;
+
         
         input{
             border: none;

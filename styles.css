@@ -2,15 +2,14 @@
   display: flex;
   gap: 30px;
   margin: 30px;
-  width: 45%;
+  width: 35%;
   flex-wrap: wrap;
 }
 #container #detalji {
   border: 1px solid black;
   padding: 0px 15px;
   display: none;
-  flex: 1;
-  max-width: 40%;
+  width: 200px;
 }
 #container #artikli {
   border: 1px solid black;

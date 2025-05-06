@@ -1,17 +1,19 @@
-class Artikal{
-    constructor(naziv, cena, opis){
+class Artikal {
+    constructor(naziv, cena, opis) {
         this.naziv = naziv
         this.cena = cena
         this.opis = opis
     }
 }
 
-let listaArtikala = [new Artikal("Fenjer", 200, "Goriiiii"), new Artikal("Buzdovan", 2000, "Udriiiiiiii"), new Artikal("Frizbi", 10, "Baciiiii")]
+let listaArtikala = []
 
-function createArtikliRows(){
+
+function createArtikliRows() {
     let table = document.querySelector("#artikli")
+    table.innerHTML = ''
 
-    for(let i = 0; i < listaArtikala.length; i++){
+    for (let i = 0; i < listaArtikala.length; i++) {
         let tr = document.createElement('tr')
 
         let naziv = document.createElement('td')
@@ -20,21 +22,21 @@ function createArtikliRows(){
 
         naziv.textContent = listaArtikala[i].naziv
         cena.textContent = listaArtikala[i].cena
-        opis.textContent = listaArtikala[i].opis
         rb.textContent = i + 1
 
         tr.appendChild(rb)
         tr.appendChild(naziv)
         tr.appendChild(cena)
 
-        tr.addEventListener('click', function() {
-            displayArtikldetails(listaArtikala[i])})
+        tr.addEventListener('click', function () {
+            displayArtikldetails(listaArtikala[i])
+        })
 
         table.appendChild(tr)
     }
 }
 
-function displayArtikldetails(artikal){
+function displayArtikldetails(artikal) {
     let p = document.createElement('p')
     let p2 = document.createElement('p')
     let p3 = document.createElement('p')
@@ -45,7 +47,7 @@ function displayArtikldetails(artikal){
 
     let detalji = document.querySelector('#detalji')
 
-    if(detalji.firstChild){
+    if (detalji.firstChild) {
         detalji.textContent = ''
     }
 
@@ -56,4 +58,33 @@ function displayArtikldetails(artikal){
     detalji.style.display = 'block'
 }
 
-document.addEventListener('DOMContentLoaded', createArtikliRows)
+function handleFormSubmisson() {
+    let submitBtn = document.querySelector('#submitBtn')
+
+    submitBtn.addEventListener('click', function () {
+        let form = document.querySelector('#forma')
+        let formData = new FormData(form)
+
+        let naziv = formData.get('naziv')
+        let cena = formData.get('cena')
+        let opis = formData.get('opis')
+
+        listaArtikala.push(new Artikal(naziv, cena, opis))
+
+        createArtikliRows()
+    })
+}
+
+function initializeArtikli(){
+    listaArtikala =
+        [new Artikal("Fenjer", 200, "Goriiiii"),
+        new Artikal("Buzdovan", 2000, "Udriiiiiiii"),
+        new Artikal("Frizbi", 10, "Baciiiii")]
+
+    handleFormSubmisson()
+    createArtikliRows()
+
+}
+
+document.addEventListener('DOMContentLoaded', initializeArtikli)
+
