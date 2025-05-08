@@ -6,22 +6,21 @@ class Artikal {
     }
 }
 
-let listaArtikala = []
-
-
 function createArtikliRows() {
     let table = document.querySelector("#artikli")
     table.innerHTML = ''
 
-    for (let i = 0; i < listaArtikala.length; i++) {
+    let artikliLocalStorage = JSON.parse(localStorage.getItem("artikliStorage"))
+
+    for (let i = 0; i < artikliLocalStorage.length; i++) {
         let tr = document.createElement('tr')
 
         let naziv = document.createElement('td')
         let cena = document.createElement('td')
         let rb = document.createElement('td')
 
-        naziv.textContent = listaArtikala[i].naziv
-        cena.textContent = listaArtikala[i].cena
+        naziv.textContent = artikliLocalStorage[i].naziv
+        cena.textContent = artikliLocalStorage[i].cena
         rb.textContent = i + 1
 
         tr.appendChild(rb)
@@ -29,7 +28,7 @@ function createArtikliRows() {
         tr.appendChild(cena)
 
         tr.addEventListener('click', function () {
-            displayArtikldetails(listaArtikala[i])
+            displayArtikldetails(artikliLocalStorage[i])
         })
 
         table.appendChild(tr)
@@ -69,21 +68,17 @@ function handleFormSubmisson() {
         let cena = formData.get('cena')
         let opis = formData.get('opis')
 
-        listaArtikala.push(new Artikal(naziv, cena, opis))
+        let artikliLocalStorage = JSON.parse(localStorage.getItem("artikliStorage"))
+        artikliLocalStorage.push(new Artikal(naziv, cena, opis))
+        localStorage.setItem("artikliStorage", JSON.stringify(artikliLocalStorage))
 
         createArtikliRows()
     })
 }
 
-function initializeArtikli(){
-    listaArtikala =
-        [new Artikal("Fenjer", 200, "Goriiiii"),
-        new Artikal("Buzdovan", 2000, "Udriiiiiiii"),
-        new Artikal("Frizbi", 10, "Baciiiii")]
-
+function initializeArtikli() {
     handleFormSubmisson()
     createArtikliRows()
-
 }
 
 document.addEventListener('DOMContentLoaded', initializeArtikli)
